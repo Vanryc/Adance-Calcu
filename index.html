@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculator</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Advanced Calculator</h1>
+            
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="tab-container">
+            <div class="tabs">
+                <div class="tab active" data-tab="calculator">Calculator</div>
+                <div class="tab" data-tab="calculators">Calculators</div>
+            </div>
+        </div>
+
+        <div class="tab-content active" id="calculator-tab">
+            <div class="app-container">
+                <div class="calculator-section">
+                    <h2 class="section-title">Calculator</h2>
+                    <div class="calculator-display" id="display">0</div>
+                    <div class="input-area">
+                        <input type="text" id="expression-input" placeholder="Enter expression or command">
+                        <button id="calculate-btn">Calculate</button>
+                    </div>
+                    <div class="calculator-keypad">
+                        <button class="number-btn" data-value="7">7</button>
+                        <button class="number-btn" data-value="8">8</button>
+                        <button class="number-btn" data-value="9">9</button>
+                        <button class="operator-btn" data-value="/">/</button>
+                        <button class="number-btn" data-value="4">4</button>
+                        <button class="number-btn" data-value="5">5</button>
+                        <button class="number-btn" data-value="6">6</button>
+                        <button class="operator-btn" data-value="*">×</button>
+                        <button class="number-btn" data-value="1">1</button>
+                        <button class="number-btn" data-value="2">2</button>
+                        <button class="number-btn" data-value="3">3</button>
+                        <button class="operator-btn" data-value="-">-</button>
+                        <button class="number-btn" data-value="0">0</button>
+                        <button class="number-btn" data-value=".">.</button>
+                        <button class="clear-btn" id="clear-btn">C</button>
+                        <button class="operator-btn" data-value="+">+</button>
+                        <button class="function-btn" data-value="sin(">sin</button>
+                        <button class="function-btn" data-value="cos(">cos</button>
+                        <button class="function-btn" data-value="tan(">tan</button>
+                        <button class="operator-btn" data-value="^">^</button>
+                        <button class="function-btn" data-value="sqrt(">√</button>
+                        <button class="function-btn" data-value="log(">log</button>
+                        <button class="function-btn" data-value="ln(">ln</button>
+                        <button class="function-btn" data-value="pi">π</button>
+                        <button class="function-btn" data-value="e">e</button>
+                        <button class="function-btn" data-value="(">(</button>
+                        <button class="function-btn" data-value=")">)</button>
+                        <button class="equals-btn" id="equals-btn">=</button>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h2 class="section-title">History</h2>
+                    <div class="history-list" id="history-list">
+                        <!-- History items will be added here -->
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <button class="menu-btn" id="clear-history-btn">Clear History</button>
+                        <button class="menu-btn" id="save-history-btn">Save History</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="calculators-tab">
+            <div class="app-container">
+                <div class="calculator-section">
+                    <h2 class="section-title">Calculator Management</h2>
+                    <div class="menu-options">
+                        <button class="menu-btn" id="create-calculator-btn">Create Calculator</button>
+                        <button class="menu-btn" id="view-calculators-btn">View Calculators</button>
+                        <button class="menu-btn" id="delete-calculator-btn">Delete Calculator</button>
+                    </div>
+                    
+                    <div class="calculator-selector" id="calculator-selector" style="display: none;">
+                        <select id="calculators-dropdown"></select>
+                        <button class="menu-btn" id="load-calculator-btn">Load Calculator</button>
+                    </div>
+                    
+                    <div id="calculators-list" style="display: none;">
+                        <h3>Saved Calculators</h3>
+                        <ul id="calculators-ul"></ul>
+                    </div>
+                </div>
+                
+                <div class="history-section" id="calculator-history-section" style="display: none;">
+                    <h2 class="section-title">Calculator History</h2>
+                    <div class="history-list" id="saved-history-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="create-calculator-modal">
+        <div class="modal-content">
+            <h3 class="modal-title">Create New Calculator</h3>
+            <input type="text" class="modal-input" id="calculator-name-input" placeholder="Enter calculator name">
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-secondary" id="cancel-create-btn">Cancel</button>
+                <button class="modal-btn modal-btn-primary" id="confirm-create-btn">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="delete-calculator-modal">
+        <div class="modal-content">
+            <h3 class="modal-title">Delete Calculator</h3>
+            <p id="delete-calculator-message">Are you sure you want to delete this calculator?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-secondary" id="cancel-delete-btn">Cancel</button>
+                <button class="modal-btn modal-btn-primary" id="confirm-delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/parser.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
